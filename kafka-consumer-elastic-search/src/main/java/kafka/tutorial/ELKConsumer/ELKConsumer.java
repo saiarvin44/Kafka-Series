@@ -32,8 +32,8 @@ public class ELKConsumer {
 
   public static RestHighLevelClient createClient() {
     String hostname = "kafka-tutorial-4692280483.us-east-1.bonsaisearch.net";
-    String username = "3x8lrfg6n7";
-    String password = "iwhptom18t";
+    String username = "";
+    String password = "";
 
     final CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
     credentialsProvider.setCredentials(

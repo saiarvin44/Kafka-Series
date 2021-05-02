@@ -3,4 +3,6 @@ include 'basics'
 include 'kafka-producer-twitter'
 include 'kafka-consumer-elastic-search'
 include 'kafka-stream-filter-tweets'
+include 'WordCount-Streaming'
+include 'Kafka-Streaming-Word-Count'
 

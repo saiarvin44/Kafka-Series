@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation group: 'org.apache.kafka', name: 'kafka-streams', version: '0.11.0.0'
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    testImplementation group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.25'
+
+    jar {
+        manifest {
+            attributes 'Main-Class': 'kafka.tutorial.stream.WordsCountApp'
+        }
+        from {
+            configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+        }
+    }
+
+    task customFatJar(type: Jar) {
+        manifest {
+            attributes 'Main-Class': 'kafka.tutorial.stream.WordsCountApp'
+        }
+        baseName = 'all-in-one-jar'
+        from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+        with jar
+    }
+}

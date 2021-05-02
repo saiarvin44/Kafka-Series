@@ -5,4 +5,4 @@ gradle
 .classpath
 */.classpath
 */.project
-*/org.eclipse.buildship.core.prefs
+*/.settings
